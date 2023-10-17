@@ -6,22 +6,24 @@
     <title>Homework_2</title>
   </head>
   <body>
-        <div id="app">
-        <h2>Задание Vue</h2>
-        <p>
-            Вы разрабатываете приложение для отображения и сортировки списка
-            товаров. У вас есть массив объектов products, где каждый объект
-            представляет товар с его названием и ценой. Вам необходимо отобразить
-            список товаров и предоставить пользователю возможность сортировать
-            товары по цене (по возрастанию и по убыванию).
-        </p>
-        <ul>
-            <li v-for="item in products" :key="item.id">
-                <label>{{item.name}}</label>
-                <p>{{item.price}}</p>
-            </li>
-        </ul>
-        </div>
+    <div id="app">
+      <h2>Задание Vue</h2>
+      <p>
+        Вы разрабатываете приложение для отображения и сортировки списка
+        товаров. У вас есть массив объектов products, где каждый объект
+        представляет товар с его названием и ценой. Вам необходимо отобразить
+        список товаров и предоставить пользователю возможность сортировать
+        товары по цене (по возрастанию и по убыванию).
+      </p>
+      <ul>
+        <li v-for="item in products" :key="item.id">
+            {{item.name}} : {{item.price}}
+        </li>
+      </ul>
+      <button @click="sortByMinPrice">Сортировать по убыванию</button>
+      <br>
+      <button @click="sortByMaxPrice">Сортировать по возрастанию</button>
+    </div>
 
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -29,13 +31,23 @@
         data() {
           return {
             products: [
-                { id: 1, name: "фундук", price: 250 },
-                { id: 2, name: "миндаль", price: 350 },
-                { id: 3, name: "макадамия", price: 450 },
-            ]
+              { id: 1, name: "фундук", price: 250 },
+              { id: 2, name: "миндаль", price: 350 },
+              { id: 3, name: "макадамия", price: 450 },
+              { id: 4, name: "грецкий орех", price: 300 },
+              { id: 5, name: "арахис", price: 150 },
+            ],
           };
         },
-        methods: {},
+        methods: {
+          sortByMinPrice() {
+
+          },
+
+          sortByMaxPrice() {
+            
+          }
+        },
       };
 
       Vue.createApp(App).mount("#app");
